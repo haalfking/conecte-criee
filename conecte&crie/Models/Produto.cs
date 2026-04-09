@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace conecte_crie.Models
 {
-    public class Usuario
+    public class Produto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
-        public string Tipo { get; set; } // Admin ou Cliente
+        public string Descricao { get; set; }
+        public double Preco { get; set; }
     }
 }

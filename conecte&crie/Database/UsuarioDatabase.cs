@@ -37,5 +37,11 @@ namespace conecte_crie.Database
         {
             return _db.Delete<Usuario>(id);
         }
+
+        public Usuario ValidarLogin(string email, string senha)
+        {
+            return _db.Table<Usuario>()
+                      .FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
     }
 }

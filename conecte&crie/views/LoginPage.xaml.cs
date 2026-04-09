@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace conecte_crie.views;
+namespace conecte_crie.Views; 
 
 public partial class LoginPage : ContentPage
 {
@@ -26,15 +26,16 @@ public partial class LoginPage : ContentPage
             }
 
             // Buscar usuário no banco/lista
-            var usuario = App.Database.Listar()
-                          .FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            var usuario = App.Database.ValidarLogin(email, senha);
 
             if (usuario != null)
             {
+                App.UsuarioLogado = usuario;
+
                 await DisplayAlert("Sucesso", "Login realizado com sucesso!", "OK");
 
                 // 🔥 Navegação para próxima tela (vamos criar depois)
-                // await Navigation.PushAsync(new HomePage());
+                 await Navigation.PushAsync(new HomePage());
             }
             else
             {

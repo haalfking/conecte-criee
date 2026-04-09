@@ -17,7 +17,8 @@ public partial class CadastroPage : ContentPage
             {
                 Nome = txtNome.Text,
                 Email = txtEmail.Text,
-                Senha = txtSenha.Text
+                Senha = txtSenha.Text,
+                Tipo = "Cliente"
             };
 
             App.Database.Salvar(u);
